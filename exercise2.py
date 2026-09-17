@@ -22,10 +22,10 @@ class Cart:
 
     def add_item(self, item: dict, qty: int = 1) -> None:
         for line in self.lines:
-            if line["item_id"] == item["item_id"]:
+            if line["item_id"] == item["id"]:
                 line["qty"] += qty
                 return
-        self.lines.append({"item_id": item["item_id"], "name": item["name"], "price": item["price"], "qty": qty})
+        self.lines.append({"item_id": item["id"], "name": item["name"], "price": item["price"], "qty": qty})
 
     def remove_item(self, item_id: int) -> None:
         self.lines = [line for line in self.lines if line["item_id"] != item_id]
