@@ -30,10 +30,10 @@ class Cart:
         if not item["available"]:
             raise OutOfStockError("Item is not available.")
         for line in self.lines:
-            if line["item_id"] == item["item_id"]:
+            if line["item_id"] == item["id"]:
                 line["qty"] += qty
                 return
-        self.lines.append({"item_id": item["item_id"], "name": item["name"], "price": item["price"], "qty": qty})
+        self.lines.append({"item_id": item["id"], "name": item["name"], "price": item["price"], "qty": qty})
 
     def remove_item(self, item_id: int) -> None:
         # TODO: raise KeyError if the item is not in the cart
